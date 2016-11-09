@@ -1,0 +1,181 @@
+html, body{
+	height:100%;height: 100vh;
+	background: #000;color: #000;
+	background-image: linear-gradient(280deg, rgba(107,80,35,.5) 0%, rgba(89,52,45,.5) 25%, rgba(65,44,63,.5) 70%, rgba(32,33,61,.5) 100%);
+	overflow: hidden;
+	-webkit-user-select: none;
+	cursor: default;
+}
+
+#game{
+	position: absolute;
+	height: 100%;height: 100vh;
+	width: 60vh;min-width: 400px;	
+	left: 50%;
+	transform: translateX(-50%);
+	background: linear-gradient(to right, #6B5023 -10%, #592D2B 25%, #3F2437 70%, #292746 100%);
+	background: radial-gradient(circle at -50% 55%, #6B5023 25%, #592D2B 50%, #3F2437 75%, #292746 95%);
+	font-family: "Open Sans", Arial, sans-serif;
+	box-shadow: 0 0 40px 10px rgba(0,0,0,.5);
+	outline: 1px solid #000;
+	overflow: hidden;
+	
+	.sidebar{
+		width: 80px;height: calc(100% - 20px);
+		padding: 10px;
+		overflow-y: scroll;
+		.button{
+			&:not(:last-child){margin-bottom:15px;}
+			/* Icon placement fixes */
+			&.info img{margin-top:-2px;}
+			&.food img{margin-top:1px;margin-left:1px;}
+			&.medical img{margin-top:-1px;}
+			&.begging img{margin-top:-2px;}
+			&.work img{margin-top:-2px;}
+			&.education img{margin-top:-1px;}
+			&.home img{margin-top:-2px;}
+			&.business img{margin-top:-1px;margin-left:-1px;}
+			&.politics img{margin-top:-3px;}
+		}
+	}
+	
+	.body{
+		position: absolute;
+		top: 0;right: 0;
+		width: calc(100% - 100px);
+		height: 100%;height: 100vh;
+		color: #aaa;
+		.status-bar{
+			position: relative;
+			/* Images on progress bars fix */
+			.display .button.progress img{z-index: 3;position: absolute;}
+			& > table{
+				position: relative;width: 100%;
+				td{padding: 0 calc(16.65% - 37px);}
+			}
+			& > table.currency{
+				position: relative;
+				text-align: center;
+				td:first-child{text-align: left;}
+				td:last-child{text-align: right;}
+				td{padding: .4em !important;width: 33.333% !important;}
+			}
+		}
+		.menus{
+			position: relative;
+			width: calc(100% - 12px);height: calc(100% - 126px);
+			padding: 12px;
+			.wrapper{width:100%;height:100%;overflow-y: auto;}
+			.menu{
+				width: calc(100% - 12px);
+				h1{margin: 15px 0;text-transform: uppercase;font-size: .75em;}
+				h1:not(:first-child){margin-top:26px;}
+				h1:first-child{margin-top:0;}
+				h2{margin-bottom: .6em;}
+				p{
+					cursor: pointer;
+					text-align: center;
+					padding: .8em;
+					border: 1px solid #aaa;
+					border-radius: 4px;
+					margin-bottom: 15px;
+					&:hover:not(:active), &.active{background: #aaa;color: #000;}
+					&:hover:not(:active) ico, &.active ico{-webkit-filter: brightness(0);}
+					&:active{background: #999;border-color:#999;color: #000;}
+				}
+				p:last-child{margin-bottom: 0;}
+				ico.bottle{margin-left: -2px;}
+				ico.arrow{margin-left: 3px;margin-right:2px;}
+			}
+		}
+	}
+	
+	.progress.indicator{
+		position: absolute;
+		top: -1px;left: -1px;
+		width: 74px;height: 74px;
+		.clip{
+			position: absolute;top: 0;
+			transform-origin: center bottom;
+			overflow: hidden;
+			&.first{z-index: 2;transform: rotate(90deg);}//do not alter
+			&.second{z-index: 1;transform: rotate(-90deg);}//do not alter either
+			.half{
+				position: absolute;top: 0;
+				background: #aaa;
+				transform-origin: center bottom;
+			}
+			&.first .half{transform: rotate(-0deg);}//  -180 = empty, 0 = full, first MUST be 0 before second
+			&.second .half{transform: rotate(-0deg);}// -180 = empty, 0 = full
+		}
+		.clip, .half{width: 74px;height: 37px;border-radius: 37px 37px 0 0;}
+		.cover{
+			z-index: 3;
+			position: absolute;
+			top: 4px;left: 4px;
+			background: #000;
+			border-radius: 50%;
+			width: 66px;
+			height: 66px;
+		}
+	}
+
+	.button{
+		position: relative;
+		border: 1px solid #aaa;
+		width: 72px;height: 72px;
+		border-radius: 50%;
+		cursor: pointer;
+		img{padding:14px;width: 45px;height: 45px;}
+		&:not(.progress){
+			&:hover, &.selected{background: #aaa;}
+			&:hover img, &.selected img{-webkit-filter: brightness(0);}
+		}
+	}
+	ico.bottle{
+		display: inline-block;
+		background: url('http://i.imgur.com/D1vHjUg.png') no-repeat;
+		background-size:cover;
+		height: .75em;width: .75em;
+	}
+	ico.arrow{
+		display: inline-block;
+		background: url('http://i.imgur.com/4YRieiW.png') no-repeat;
+		background-size:cover;
+		height: .75em;width: 1em;
+		&.down{transform: rotate(90deg);}
+		&.up{transform: rotate(-90deg);}
+		&.left{transform: rotate(-180deg);}
+	}
+	.blend{mix-blend-mode: color-dodge;}
+	.hidden, .hide{display:none;}
+	
+	::-webkit-scrollbar{width: 4px;}
+	::-webkit-scrollbar-track{background: #000;border-radius:2px;}
+	::-webkit-scrollbar-thumb{background: #888;border-radius:2px;}
+	::-webkit-scrollbar-thumb:hover{background: #aaa;border-radius:2px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

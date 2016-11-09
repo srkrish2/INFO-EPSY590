@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Hobo Simulator (PC)</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div id="game">
+	
+	<div class="sidebar blend">
+		<div class="info      button"><img src="http://i.imgur.com/0Fu5COI.png"/></div>
+		<div class="food      button"><img src="http://i.imgur.com/MhqlXqR.png"/></div>
+		<div class="medical   button"><img src="http://i.imgur.com/S07tYAl.png"/></div>
+		<div class="begging   button"><img src="http://i.imgur.com/B9CtxbS.png"/></div>
+		<div class="work      button"><img src="http://i.imgur.com/LzYvsGg.png"/></div>
+		<div class="education button"><img src="http://i.imgur.com/mAbxUIE.png"/></div>
+		<div class="home      button"><img src="http://i.imgur.com/wXXgMXx.png"/></div>
+		<div class="business  button"><img src="http://i.imgur.com/P09EqOP.png"/></div>
+		<div class="politics  button"><img src="http://i.imgur.com/aBZI7D4.png"/></div>
+		<div class="help      button"><img src="http://i.imgur.com/DRw9EJu.png"/></div>
+		<div class="settings  button"><img src="http://i.imgur.com/AjRd8WQ.png"/></div>
+	</div>
+	<div class="body blend">
+		<div class="status-bar">
+			<table class="currency display"><tr>
+				<td class="p">₽0</td>
+				<td class="bottles"><ico class="bottle"></ico>0</td>
+				<td class="money">$0</td>
+			</tr></table>
+			<table class="status display"><tr>
+				<td class="health">
+					<div class="button progress">
+						<div class="progress indicator">
+							<div class="clip first"><div class="half"></div></div>
+							<div class="clip second"><div class="half"></div></div>
+							<div class="cover"></div>
+						</div>
+						<img src="http://i.imgur.com/Xn5jiZP.png">
+					</div>
+				</td>
+				<td class="hunger">
+					<div class="button progress">
+						<div class="progress indicator">
+							<div class="clip first"><div class="half"></div></div>
+							<div class="clip second"><div class="half"></div></div>
+							<div class="cover"></div>
+						</div>
+						<img src="http://i.imgur.com/jLw9XMe.png">
+					</div>
+				</td>
+				<td class="happiness">
+					<div class="button progress">
+						<div class="progress indicator">
+							<div class="clip first"><div class="half"></div></div>
+							<div class="clip second"><div class="half"></div></div>
+							<div class="cover"></div>
+						</div>
+						<img src="http://i.imgur.com/i2G03ac.png">
+					</div>
+				</td>
+			</tr></table>
+		</div>
+		<div class="menus"><div class="wrapper">
+			<div class="menu info hidden">
+				<h1>Information</h1>
+				<h2>Age: 21</h2>
+				<h2>Age of death: 0</h2>
+				<h2>Transport: Helicopter</h2>
+				<h2>Real estate: An office</h2>
+				<h2>Popularity: 0</h2>
+				<h2>Status: President</h2>
+				<h1>Exchange</h1>
+				<p>40₽<ico class="arrow"></ico>1$</p>
+				<p>1$<ico class="arrow"></ico>40₽</p>
+				<p><ico class="bottle"></ico>1<ico class="arrow"></ico>1₽</p>
+			</div>
+			<div class="menu food hidden">
+				<h1>Food</h1>
+				<p>Eat from the trash</p>
+				<p>Buy a hot dog (₽100)</p>
+				<p>Eat at the cafe (₽500)</p>
+				<p>Buy food in the shop (₽3000)</p>
+				<p>Get married (₽5000/day)</p>
+				<h1>Happiness</h1>
+				<p>Beer (₽50)</p>
+				<p>Vodka (₽200)</p>
+				<p>Whiskey (₽500)</p>
+				<p>XO cognac (₽1500)</p>
+				<p>Get drunk in a bar ($1000/day)</p>
+			</div>
+			<div class="menu medical hidden">
+				<h1>Improve your health</h1>
+				<p>Take some pills from the trash</p>
+				<p>Visit a witch doctor (₽100)</p>
+				<p>Visit a real doctor (₽500)</p>
+				<p>Average clinic (₽3000)</p>
+				<p>Good hospital (₽100K)</p>
+				<h1>Fitness</h1>
+				<p>Go for a run</p>
+				<p>Fitness club (₽15K/month)</p>
+				<p>Personal trainer ($2000/month)</p>
+				<h1>Life</h1>
+				<p>Visit a fortune teller ($1000)</p>
+				<p>Buy the immortality pill ($100M)</p>
+			</div>
+			<div class="menu begging hidden">
+				<h1>Bum around</h1>
+				<p>In the suburbs</p>
+				<p>At the cemetery</p>
+				<p>Near the supermarket</p>
+				<p>Downtown</p>
+				<h1>Begging and Illegal activity</h1>
+				<p>Beg</p>
+				<p>Fight another hobo for money</p>
+				<p>Drive a gypsy cab</p>
+				<p>Rob a stranger</p>
+				<p>Rob a bank</p>
+			</div>
+			<div class="menu work hidden">
+				<h1>Job</h1>
+				<p>Wash cars</p>
+				<p>Sweep streets</p>
+				<p>Work as a plumber</p>
+				<p>Work at the factory</p>
+				<p>Work in the office</p>
+				<p>Work as a manager</p>
+				<p>Work as a stock broker</p>
+				<p>Commit stock fraud</p>
+				<p>Meeting in the Senate</p>
+				<p>Trade weapons</p>
+				<p>Allocate the budget</p>
+				<p>Govern the country</p>
+			</div>
+			<div class="menu education hidden">
+				<h1>Study</h1>
+				<p>Learn arithmetics (₽150)</p>
+				<p>Graduate from school (₽5000)</p>
+				<p>Graduate from college (₽25K)</p>
+				<p>Get a bachelor's degree (₽200K)</p>
+				<p>Get a master's degree (₽1M)</p>
+				<h1>Popularity</h1>
+				<p>Go to a night club (₽1000)</p>
+				<p>Buy a suit (₽50K)</p>
+				<p>Shoot a music video ($10K)</p>
+				<p>Buy a competitor company ($5M)</p>
+			</div>
+			<div class="menu home hidden">
+				<h1>Real estate</h1>
+				<p>Buy a tent (₽500)</p>
+				<p>Rent a room (₽15K/month)</p>
+				<p>Rest an apartment (₽40K/month)</p>
+				<p>Buy a house ($300K)</p>
+				<p>Buy an office ($1M)</p>
+				<h1>Transport</h1>
+				<p>Buy shoes (₽2000)</p>
+				<p>Buy a bike (₽10K)</p>
+				<p>Buy a cheap car ($2000)</p>
+				<p>Buy a sports car ($50K)</p>
+				<p>Buy a helicopter ($600K)</p>
+			</div>
+			<div class="menu business hidden">
+				<h1>Business</h1>
+				<p>The leader of hobos (₽3000)</p>
+				<p>Rent out your house (+₽30K/month)</p>
+				<p>Rent out your office (+$10K/month)</p>
+				<p>Start a startup (+$3000/day)</p>
+				<h1>Protection</h1>
+				<p>Buy an amulet (₽15K)</p>
+				<p>Hire a bodyguard ($25K/month)</p>
+				<p>Hire an attorney ($50K/month)</p>
+			</div>
+			<div class="menu politics hidden">
+				<h1>Politics</h1>
+				<p>Become a senator ($500K)</p>
+				<p>Become the minister of defense ($500K)</p>
+				<p>Become the minister of finance ($500K)</p>
+				<p>Run for president ($1M)</p>
+				<p>Organize revolution ($10M)</p>
+				<h1>Social</h1>
+				<p>Get an ID card</p>
+				<p>Get unemployment benefits</p>
+				<p>Get disability benefits</p>
+				<p>Apply for a pension</p>
+			</div>
+			<div class="menu settings hidden">
+				<h1>Settings</h1>
+				<p>New Game</p>
+				<p>Load Backup Save</p>
+				<p>Slot 1: Empty</p>
+				<p>Slot 2: Empty</p>
+				<p>Slot 3: Empty</p>
+			</div>
+			<div class="menu help hidden">
+				<h1>Help Guide and Info</h1>
+			</div>
+			
+		</div></div>
+	</div>
+	
+</div>
+<!--
+
+
+
+
+
+
+
+
+<img class="heart icon blend" src="http://i.imgur.com/Xn5jiZP.png" width="100">
+<img class="hunger icon blend" src="http://i.imgur.com/jLw9XMe.png" width="100">
+<img class="happiness icon blend" src="http://i.imgur.com/i2G03ac.png" width="100">
+<img class="info icon blend" src="http://i.imgur.com/0Fu5COI.png" width="100">
+<img class="food icon blend" src="http://i.imgur.com/MhqlXqR.png" width="100">
+<img class="medical icon blend" src="http://i.imgur.com/S07tYAl.png" width="100">
+<img class="begging icon blend" src="http://i.imgur.com/B9CtxbS.png" width="100">
+<img class="work icon blend" src="http://i.imgur.com/LzYvsGg.png" width="100">
+<img class="education icon blend" src="http://i.imgur.com/42Z43gH.png" width="100">
+<img class="home icon blend" src="http://i.imgur.com/ZQXWlot.png" width="100">
+<img class="business icon blend" src="http://i.imgur.com/P09EqOP.png" width="100">
+<img class="political icon blend" src="http://i.imgur.com/aBZI7D4.png" width="100">
+<img class="settings icon blend" src="http://i.imgur.com/AjRd8WQ.png" width="100">
+<img class="bottles" src="http://i.imgur.com/D1vHjUg.png">
+-->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+      <script src="js/index.js"></script>
+
+</body>
+</html>

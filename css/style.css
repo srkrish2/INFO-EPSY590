@@ -1,0 +1,274 @@
+html, body {
+  height: 100%;
+  height: 100vh;
+  background: #000;
+  color: #000;
+  background-image: linear-gradient(280deg, rgba(107, 80, 35, 0.5) 0%, rgba(89, 52, 45, 0.5) 25%, rgba(65, 44, 63, 0.5) 70%, rgba(32, 33, 61, 0.5) 100%);
+  overflow: hidden;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+#game {
+  position: absolute;
+  height: 100%;
+  height: 100vh;
+  width: 60vh;
+  min-width: 400px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #6B5023 -10%, #592D2B 25%, #3F2437 70%, #292746 100%);
+  background: radial-gradient(circle at -50% 55%, #6b5023 25%, #592d2b 50%, #3f2437 75%, #292746 95%);
+  font-family: "Open Sans", Arial, sans-serif;
+  box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.5);
+  outline: 1px solid #000;
+  overflow: hidden;
+}
+#game .sidebar {
+  width: 80px;
+  height: calc(100% - 20px);
+  padding: 10px;
+  overflow-y: scroll;
+}
+#game .sidebar .button {
+  /* Icon placement fixes */
+}
+#game .sidebar .button:not(:last-child) {
+  margin-bottom: 15px;
+}
+#game .sidebar .button.info img {
+  margin-top: -2px;
+}
+#game .sidebar .button.food img {
+  margin-top: 1px;
+  margin-left: 1px;
+}
+#game .sidebar .button.medical img {
+  margin-top: -1px;
+}
+#game .sidebar .button.begging img {
+  margin-top: -2px;
+}
+#game .sidebar .button.work img {
+  margin-top: -2px;
+}
+#game .sidebar .button.education img {
+  margin-top: -1px;
+}
+#game .sidebar .button.home img {
+  margin-top: -2px;
+}
+#game .sidebar .button.business img {
+  margin-top: -1px;
+  margin-left: -1px;
+}
+#game .sidebar .button.politics img {
+  margin-top: -3px;
+}
+#game .body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - 100px);
+  height: 100%;
+  height: 100vh;
+  color: #aaa;
+}
+#game .body .status-bar {
+  position: relative;
+  /* Images on progress bars fix */
+}
+#game .body .status-bar .display .button.progress img {
+  z-index: 3;
+  position: absolute;
+}
+#game .body .status-bar > table {
+  position: relative;
+  width: 100%;
+}
+#game .body .status-bar > table td {
+  padding: 0 calc(16.65% - 37px);
+}
+#game .body .status-bar > table.currency {
+  position: relative;
+  text-align: center;
+}
+#game .body .status-bar > table.currency td:first-child {
+  text-align: left;
+}
+#game .body .status-bar > table.currency td:last-child {
+  text-align: right;
+}
+#game .body .status-bar > table.currency td {
+  padding: .4em !important;
+  width: 33.333% !important;
+}
+#game .body .menus {
+  position: relative;
+  width: calc(100% - 12px);
+  height: calc(100% - 126px);
+  padding: 12px;
+}
+#game .body .menus .wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+#game .body .menus .menu {
+  width: calc(100% - 12px);
+}
+#game .body .menus .menu h1 {
+  margin: 15px 0;
+  text-transform: uppercase;
+  font-size: .75em;
+}
+#game .body .menus .menu h1:not(:first-child) {
+  margin-top: 26px;
+}
+#game .body .menus .menu h1:first-child {
+  margin-top: 0;
+}
+#game .body .menus .menu h2 {
+  margin-bottom: .6em;
+}
+#game .body .menus .menu p {
+  cursor: pointer;
+  text-align: center;
+  padding: .8em;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+#game .body .menus .menu p:hover:not(:active), #game .body .menus .menu p.active {
+  background: #aaa;
+  color: #000;
+}
+#game .body .menus .menu p:hover:not(:active) ico, #game .body .menus .menu p.active ico {
+  -webkit-filter: brightness(0);
+}
+#game .body .menus .menu p:active {
+  background: #999;
+  border-color: #999;
+  color: #000;
+}
+#game .body .menus .menu p:last-child {
+  margin-bottom: 0;
+}
+#game .body .menus .menu ico.bottle {
+  margin-left: -2px;
+}
+#game .body .menus .menu ico.arrow {
+  margin-left: 3px;
+  margin-right: 2px;
+}
+#game .progress.indicator {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 74px;
+  height: 74px;
+}
+#game .progress.indicator .clip {
+  position: absolute;
+  top: 0;
+  transform-origin: center bottom;
+  overflow: hidden;
+}
+#game .progress.indicator .clip.first {
+  z-index: 2;
+  transform: rotate(90deg);
+}
+#game .progress.indicator .clip.second {
+  z-index: 1;
+  transform: rotate(-90deg);
+}
+#game .progress.indicator .clip .half {
+  position: absolute;
+  top: 0;
+  background: #aaa;
+  transform-origin: center bottom;
+}
+#game .progress.indicator .clip.first .half {
+  transform: rotate(0deg);
+}
+#game .progress.indicator .clip.second .half {
+  transform: rotate(0deg);
+}
+#game .progress.indicator .clip, #game .progress.indicator .half {
+  width: 74px;
+  height: 37px;
+  border-radius: 37px 37px 0 0;
+}
+#game .progress.indicator .cover {
+  z-index: 3;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: #000;
+  border-radius: 50%;
+  width: 66px;
+  height: 66px;
+}
+#game .button {
+  position: relative;
+  border: 1px solid #aaa;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#game .button img {
+  padding: 14px;
+  width: 45px;
+  height: 45px;
+}
+#game .button:not(.progress):hover, #game .button:not(.progress).selected {
+  background: #aaa;
+}
+#game .button:not(.progress):hover img, #game .button:not(.progress).selected img {
+  -webkit-filter: brightness(0);
+}
+#game ico.bottle {
+  display: inline-block;
+  background: url("http://i.imgur.com/D1vHjUg.png") no-repeat;
+  background-size: cover;
+  height: .75em;
+  width: .75em;
+}
+#game ico.arrow {
+  display: inline-block;
+  background: url("http://i.imgur.com/4YRieiW.png") no-repeat;
+  background-size: cover;
+  height: .75em;
+  width: 1em;
+}
+#game ico.arrow.down {
+  transform: rotate(90deg);
+}
+#game ico.arrow.up {
+  transform: rotate(-90deg);
+}
+#game ico.arrow.left {
+  transform: rotate(-180deg);
+}
+#game .blend {
+  mix-blend-mode: color-dodge;
+}
+#game .hidden, #game .hide {
+  display: none;
+}
+#game ::-webkit-scrollbar {
+  width: 4px;
+}
+#game ::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 2px;
+}
+#game ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
+}
+#game ::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+  border-radius: 2px;
+}
