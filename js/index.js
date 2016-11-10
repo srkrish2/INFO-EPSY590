@@ -1,5 +1,5 @@
 var main = function(){
-	var curItem = ["info","food","medical","begging","work","education","home","business","politics","help","settings"];
+	var curItem = ["profile", "study","social","fun","work","leader","settings"];
 	var startMenu = "settings";
 	$(".sidebar .button."+startMenu).addClass("selected");
 	$(".body .menus .menu."+startMenu).removeClass("hidden");
@@ -19,6 +19,6 @@ var main = function(){
 		$(".status-bar .currency.display .p").text("₽"+formatted);
 	};
 	setPence(10000);
-	
+
 };
 $(document).ready(main);
