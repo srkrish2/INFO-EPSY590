@@ -17,14 +17,13 @@ html, body {
   min-width: 400px;
   left: 50%;
   transform: translateX(-50%);
+  background-image: linear-gradient(-180deg, #76C6DF 0%, #2F92BF 100%);
   font-family: "Open Sans", Arial, sans-serif;
-  font-size: 14;
   box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.5);
-  outline: 0px solid #000;
+  outline: 1px solid #000;
   overflow: hidden;
 }
 #game .sidebar {
-  background-image: linear-gradient(-166deg, #76C6E0 0%, #48A7D4 100%);
   width: 80px;
   height: calc(100% - 20px);
   padding: 10px;
@@ -32,39 +31,40 @@ html, body {
 }
 #game .sidebar .button {
   /* Icon placement fixes */
-  text-align: center;
-  vertical-align: middle;
-  color: #FFFFFF;
 }
-
 #game .sidebar .button:not(:last-child) {
   margin-bottom: 15px;
 }
-#game .sidebar .button.profile img {
+#game .sidebar .button.info img {
   margin-top: -2px;
 }
-#game .sidebar .button.study img {
+#game .sidebar .button.food img {
   margin-top: 1px;
   margin-left: 1px;
 }
-#game .sidebar .button.social img {
+#game .sidebar .button.medical img {
   margin-top: -1px;
 }
-#game .sidebar .button.fun img {
+#game .sidebar .button.begging img {
   margin-top: -2px;
 }
 #game .sidebar .button.work img {
   margin-top: -2px;
 }
-#game .sidebar .button.leader img {
+#game .sidebar .button.education img {
   margin-top: -1px;
 }
-#game .sidebar .button.settings img {
+#game .sidebar .button.home img {
   margin-top: -2px;
 }
-
+#game .sidebar .button.business img {
+  margin-top: -1px;
+  margin-left: -1px;
+}
+#game .sidebar .button.politics img {
+  margin-top: -3px;
+}
 #game .body {
-  background: #F9F9F9;
   position: absolute;
   top: 0;
   right: 0;
@@ -74,7 +74,6 @@ html, body {
   color: #aaa;
 }
 #game .body .status-bar {
-  background: #ffffff;
   position: relative;
   /* Images on progress bars fix */
 }
@@ -89,7 +88,20 @@ html, body {
 #game .body .status-bar > table td {
   padding: 0 calc(16.65% - 37px);
 }
-
+#game .body .status-bar > table.currency {
+  position: relative;
+  text-align: center;
+}
+#game .body .status-bar > table.currency td:first-child {
+  text-align: left;
+}
+#game .body .status-bar > table.currency td:last-child {
+  text-align: right;
+}
+#game .body .status-bar > table.currency td {
+  padding: .4em !important;
+  width: 33.333% !important;
+}
 #game .body .menus {
   position: relative;
   width: calc(100% - 12px);
@@ -107,8 +119,7 @@ html, body {
 #game .body .menus .menu h1 {
   margin: 15px 0;
   text-transform: uppercase;
-  font-size: 14;
-  color: #54AFD7;
+  font-size: .75em;
 }
 #game .body .menus .menu h1:not(:first-child) {
   margin-top: 26px;
@@ -123,14 +134,12 @@ html, body {
   cursor: pointer;
   text-align: center;
   padding: .8em;
-  border: 1px solid #54AFD7;
-  color: #54AFD7;
+  border: 1px solid #aaa;
   border-radius: 4px;
   margin-bottom: 15px;
 }
 #game .body .menus .menu p:hover:not(:active), #game .body .menus .menu p.active {
   background: #aaa;
-  border-color: #000;
   color: #000;
 }
 #game .body .menus .menu p:hover:not(:active) ico, #game .body .menus .menu p.active ico {
@@ -158,19 +167,50 @@ html, body {
   width: 74px;
   height: 74px;
 }
-
-#game .button {
-  align-content: center;
-  position: relative;
-  border: 1px solid #54AFD7;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+#game .progress.indicator .clip {
+  position: absolute;
+  top: 0;
+  transform-origin: center bottom;
+  overflow: hidden;
 }
-
-#game .button:not(.progress) {
+#game .progress.indicator .clip.first {
+  z-index: 2;
+  transform: rotate(90deg);
+}
+#game .progress.indicator .clip.second {
+  z-index: 1;
+  transform: rotate(-90deg);
+}
+#game .progress.indicator .clip .half {
+  position: absolute;
+  top: 0;
+  background: #aaa;
+  transform-origin: center bottom;
+}
+#game .progress.indicator .clip.first .half {
+  transform: rotate(0deg);
+}
+#game .progress.indicator .clip.second .half {
+  transform: rotate(0deg);
+}
+#game .progress.indicator .clip, #game .progress.indicator .half {
+  width: 74px;
+  height: 37px;
+  border-radius: 37px 37px 0 0;
+}
+#game .progress.indicator .cover {
+  z-index: 3;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: #000;
+  border-radius: 50%;
+  width: 66px;
+  height: 66px;
+}
+#game .button {
   position: relative;
-  border: 1px solid #fff;
+  border: 1px solid #aaa;
   width: 72px;
   height: 72px;
   border-radius: 50%;
@@ -182,8 +222,7 @@ html, body {
   height: 45px;
 }
 #game .button:not(.progress):hover, #game .button:not(.progress).selected {
-  background: #fff;
-  color: #54AFD7;
+  background: #aaa;
 }
 #game .button:not(.progress):hover img, #game .button:not(.progress).selected img {
   -webkit-filter: brightness(0);
@@ -229,6 +268,6 @@ html, body {
   border-radius: 2px;
 }
 #game ::-webkit-scrollbar-thumb:hover {
-  background: #fff;
+  background: #aaa;
   border-radius: 2px;
 }
