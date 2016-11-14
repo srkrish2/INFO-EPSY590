@@ -37,15 +37,15 @@ html, body {
   color: #FFFFFF;
 }
 
-#game .sidebar .button:not(:last-child) {
+#game .happiness .button:not(:last-child) {
   margin-bottom: 15px;
 }
-#game .sidebar .button.profile img {
+#game .button-progress .button.profile img {
   margin-top: -2px;
 }
-#game .sidebar .button.study img {
-  margin-top: 1px;
-  margin-left: 1px;
+#game .button progress .button.study img {
+  margin-top: 8px;
+  margin-left: 8px;
 }
 #game .sidebar .button.social img {
   margin-top: -1px;
@@ -158,6 +158,8 @@ html, body {
   width: 74px;
   height: 74px;*/
   color: #54AFD7;
+  top: 75px;
+  left: 20px;
 }
 
 #game .button {
@@ -167,6 +169,7 @@ html, body {
   width: 72px;
   height: 72px;
   border-radius: 50%;
+  margin-bottom: 20px;
 }
 
 #game .button:not(.progress) {
@@ -178,9 +181,9 @@ html, body {
   cursor: pointer;
 }
 #game .button img {
-  padding: 14px;
-  width: 45px;
-  height: 45px;
+  padding: 4px;
+  width: 65px;
+  height: 65px;
 }
 #game .button:not(.progress):hover, #game .button:not(.progress).selected {
   background: #fff;
@@ -232,5 +235,26 @@ html, body {
 #game ::-webkit-scrollbar-thumb:hover {
   background: #fff;
   border-radius: 2px;
+}
+#game .enterButton1 {
+  position: absolute;
+  top: 450px;
+  left: 5px;
+  width: 10%;
+  z-index: 999;
+}
+#game .enterButton2 {
+  position: absolute;
+  top: 480px;
+  left: 5px;
+
+  z-index: 999;
+}
+#game .sidebar p{
+    margin-top: 28px;
+    text-align: center;
+}
+.leader.button{
+  font-size: 13px;
 }
 /**hudishi**/
