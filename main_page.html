@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <?php
   session_start();
-  $happiness = 50;
-  $aquaintance = 0;
-  $friends = 0;
-  $stress = 0;
-  $grades = 0;
-  $money=0;
+  if(array_key_exists('happiness',$_SESSION) && !empty($_SESSION['happiness'])) {
+    $happiness = $_SESSION['happiness'];
+    $aquaintance = $_SESSION['aquaintance'];
+    $friends = $_SESSION['friends'];
+    $stress = $_SESSION['stress'];
+    $grades = $_SESSION['grades'];
+    $money= $_SESSION['money'];
+  }
+  else{
+    $happiness = 50;
+    $aquaintance = 0;
+    $friends = 0;
+    $stress = 0;
+    $grades = 0;
+    $money=0;
+  }
 ?>
 
 <html >
