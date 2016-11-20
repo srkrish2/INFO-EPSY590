@@ -7,6 +7,7 @@ var money=0;
 var accomplishment = [];
 
 var rand_events = {};
+var rand_events_list = ["exam"];
 rand_events["exam"] = {h:0, a:0, f:0, s:50, g:0, m:0};
 
 var point_dict = {};
@@ -60,7 +61,6 @@ point_dict["5"] = {h:0, a:0, f:0, s:0, g:0, m:10};
 // point_dict["48"] = {h:, a:, f:, s:, g:, m:};
 // point_dict["49"] = {h:, a:, f:, s:, g:, m:};
 // point_dict["50"] = {h:, a:, f:, s:, g:, m:};
-// point_dict["51"] = {h:, a:, f:, s:, g:, m:};
 
 var main = function(){
 	var curItem = ["profile", "study","social","fun","work","leader","settings"];
@@ -77,19 +77,28 @@ var main = function(){
 			}
 		}
 	});
-	var setPence = function(amt){
-		var test = amt+"";
-		var formatted = test.replace(/(\d)(?=(?:\d{3}){1,}$)/gm, "$1,");
-		$(".status-bar .currency.display .p").text("₽"+formatted);
-	};
-	setPence(10000);
-
+	display_status();
 };
 $(document).ready(main);
 
 function update_status(iden){
-	var idd = iden.toString();
-	point_dict[idd].h;
+	var idd = iden;//iden.toString();
+	happiness = happiness + point_dict[idd].h;
+	aquaintance = aquaintance + point_dict[idd].a;
+	grades = grades + point_dict[idd].g;
+	money = money + point_dict[idd].m;
+	stress = stress + point_dict[idd].s;
+	friends = friends + point_dict[idd].f;
+	display_status();
+}
+
+function display_status(){
+	document.getElementById("h").innerHTML = happiness;
+	document.getElementById("a").innerHTML = aquaintance;
+	document.getElementById("g").innerHTML = grades;
+	document.getElementById("m").innerHTML = money;
+	document.getElementById("s").innerHTML = stress;
+	document.getElementById("f").innerHTML = friends;
 }
 
 function start_over(){
@@ -100,4 +109,5 @@ function start_over(){
 	grades = 0;
 	money=0;
 	accomplishment = [];
+	display_status();
 }
