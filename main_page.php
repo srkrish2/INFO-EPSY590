@@ -18,7 +18,8 @@
   }
 ?>
 
-<html >
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -184,7 +185,7 @@
 
 </div>
 
-<form name="status" id="status" action="profile.html" method="post">
+<form name="status" id="status" action="profile.php" method="post">
   <input type="hidden" value="" name="happiness"/>
   <input type="hidden" value="" name="aquaintance" />
   <input type="hidden" value="" name="friends" />

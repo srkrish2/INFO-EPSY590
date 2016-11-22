@@ -111,3 +111,14 @@ function start_over(){
 	accomplishment = [];
 	display_status();
 }
+
+function send_main(){
+	$('input[name="happiness"]').val(happiness);
+	$('input[name="aquaintance"]').val(aquaintance);
+	$('input[name="grades"]').val(grades);
+	$('input[name="money"]').val(money);
+	$('input[name="stress"]').val(stress);
+	$('input[name="friends"]').val(friends);
+	alert($('input[name="happiness"]').val());
+	$('#status').submit();
+}

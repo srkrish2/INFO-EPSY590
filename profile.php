@@ -1,7 +1,7 @@
-<!DOCTYPE html>
 <?php
+echo "HELLO";
 // if(array_key_exists('happiness',$_GET) && !empty($_SESSION['happiness'])) {
-  echo "here";
+//   echo "here";
 //   $happiness = $_GET['happiness'];
 //   $aquaintance = $_GET['aquaintance'];
 //   $friends = $_GET['friends'];
@@ -16,7 +16,8 @@
 //   echo $_GET['happiness'];
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Hobo Simulator (PC)</title>
