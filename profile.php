@@ -24,7 +24,6 @@
     <!-- D3.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 
-
 </head>
 
 <body>
@@ -94,6 +93,7 @@
     <input type="hidden" value="" name="stress" />
     <input type="hidden" value="" name="grades" />
     <input type="hidden" value="" name="money" />
+
   </form>
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
