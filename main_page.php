@@ -1,12 +1,12 @@
 <?php
   session_start();
-  if(array_key_exists('happiness',$_GET) && !empty($_SESSION['happiness'])) {
-    $happiness = $_GET['happiness'];
-    $aquaintance = $_GET['aquaintance'];
-    $friends = $_GET['friends'];
-    $stress = $_GET['stress'];
-    $grades = $_GET['grades'];
-    $money= $_GET['money'];
+  if(isset($_POST["happiness"]) && !empty($_POST["happiness"])) {
+    $happiness = $_POST['happiness'];
+    $aquaintance = $_POST['aquaintance'];
+    $friends = $_POST['friends'];
+    $stress = $_POST['stress'];
+    $grades = $_POST['grades'];
+    $money= $_POST['money'];
   }
   else{
     $happiness = 50;
@@ -18,6 +18,7 @@
   }
 ?>
 
+<!DOCTYPE html>
 <html >
 
 <head>
@@ -53,6 +54,7 @@
   					<div class="button progress">
   						<img src="images/icon-5.png">
               <div class="progress indicator" id='h'>
+                <?php echo $happiness; ?>
   						</div>
   					</div>
   				</td>
@@ -60,6 +62,7 @@
   					<div class="button progress">
   						<img src="images/icon-2.png">
               <div class="progress indicator" id='s'>
+                <?php echo $stress; ?>
   						</div>
   					</div>
   				</td>
@@ -67,6 +70,7 @@
   					<div class="button progress">
   						<img src="images/icon-1.png">
               <div class="progress indicator" id='a'>
+                <?php echo $aquaintance; ?>
   						</div>
   					</div>
   				</td>
@@ -76,6 +80,7 @@
   					<div class="button progress">
   						<img src="images/icon-3.png">
               <div class="progress indicator" id='g'>
+                <?php echo $grades; ?>
   						</div>
   					</div>
   				</td>
@@ -83,6 +88,7 @@
   					<div class="button progress">
   						<img src="images/icon-6.png">
               <div class="progress indicator" id='m'>
+                <?php echo $money; ?>
   						</div>
   					</div>
   				</td>
@@ -90,6 +96,7 @@
   					<div class="button progress">
   						<img src="images/icon-4.png">
               <div class="progress indicator" id='f'>
+                <?php echo $friends; ?>
   						</div>
   					</div>
   				</td>
@@ -97,11 +104,6 @@
       </table>
 		</div>
 		<div class="menus"><div class="wrapper">
-			<div class="menu profile hidden">
-				<h1>Information</h1>
-				<h2>Days till Graduation: 600 </h2>
-
-			</div>
 			<div class="menu study hidden">
         <p class="action" onclick="update_status('1')" id = "1">Do Homework Alone</p>
         <p class="action" onclick="update_status('2')" id = "2">Do Homework With Friends</p>
@@ -184,7 +186,7 @@
 
 </div>
 
-<form name="status" id="status" action="profile.html" method="post">
+<form name="status" id="status" action="profile.php" method="post">
   <input type="hidden" value="" name="happiness"/>
   <input type="hidden" value="" name="aquaintance" />
   <input type="hidden" value="" name="friends" />
@@ -195,7 +197,7 @@
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-  <script src="js/index.js"></script>
+  <script src="js/new_index.js"></script>
 
 </body>
 </html>

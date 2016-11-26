@@ -77,7 +77,6 @@ var main = function(){
 			}
 		}
 	});
-	alert("here");
 	start_values();
 };
 $(document).ready(main);
@@ -94,13 +93,12 @@ function update_status(iden){
 }
 
 function start_values(){
-	alert("inhere");
-	happiness = parseInt(document.getElementById("h").innerHTML,10);
-	aquaintance = parseInt(document.getElementById("a").innerHTML,10);
-	grades = parseInt(document.getElementById("g").innerHTML,10);
-	money = parseInt(document.getElementById("m").innerHTML,10);
-	stress = parseInt(document.getElementById("s").innerHTML,10);
-	friends = parseInt(document.getElementById("f").innerHTML,10);
+	happiness = document.getElementById("h").innerHTML*1;
+	aquaintance = document.getElementById("a").innerHTML*1;
+	grades = document.getElementById("g").innerHTML*1;
+	money = document.getElementById("m").innerHTML*1;
+	stress = document.getElementById("s").innerHTML*1;
+	friends = document.getElementById("f").innerHTML*1;
 }
 
 function display_status(){

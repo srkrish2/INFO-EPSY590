@@ -1,4 +1,4 @@
-html, body {
+/*html, body {
   height: 100%;
   height: 100vh;
   background: #000;
@@ -270,4 +270,4 @@ html, body {
 #game ::-webkit-scrollbar-thumb:hover {
   background: #aaa;
   border-radius: 2px;
-}
+}*/
