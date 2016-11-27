@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  <!-- <div id="game"> -->
+  <div id="game">
         <h1>Information</h1>
         <h2>Days till Graduation: 600 </h2>
       <p hidden id="h"> <?php echo $happiness; ?></p>
@@ -47,7 +47,8 @@
       ////////////////////////////////////////////////////////////// 
 
       var margin = {top: 100, right: 100, bottom: 100, left: 100},
-        width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+        width = document.getElementById("game").offsetWidth - margin.left - margin.right;
+        // width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
         height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
           
       ////////////////////////////////////////////////////////////// 
@@ -56,12 +57,12 @@
 
       var data = [
             [
-            {axis:"Grades",value:.9},
-            {axis:"Money",value:.7},
-            {axis:"Friends",value:.6},
-            {axis:"Aquaintances",value:.4},
-            {axis:"Stress",value:.8},
-            {axis:"Happiness",value:.1},     
+            {axis:"Grades",value:document.getElementById("g").innerHTML/100},
+            {axis:"Money",value:document.getElementById("m").innerHTML/100},
+            {axis:"Friends",value:document.getElementById("f").innerHTML/100},
+            {axis:"Aquaintances",value:document.getElementById("a").innerHTML/100},
+            {axis:"Stress",value:document.getElementById("s").innerHTML/100},
+            {axis:"Happiness",value:document.getElementById("h").innerHTML/100},     
             ]
           ];
       ////////////////////////////////////////////////////////////// 
@@ -84,7 +85,7 @@
       RadarChart(".radarChart", data, radarChartOptions);
     </script>
 
-  <!-- </div> -->
+  </div>
 
   <form name="status" id="status" action="main_page.php" method="post">
     <input type="hidden" value="" name="happiness" />
