@@ -23,3 +23,12 @@ html, body {
   outline: 1px solid #000;
   overflow: hidden;
 }
+
+      .legend {
+        font-family: 'Raleway', sans-serif;
+        fill: #333333;
+      }
+      
+      .tooltip {
+        fill: #333333;
+      }

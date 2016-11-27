@@ -90,6 +90,25 @@ function update_status(iden){
 	money = money + point_dict[idd].m;
 	stress = stress + point_dict[idd].s;
 	friends = friends + point_dict[idd].f;
+	if (happiness < 0){
+		happiness = 0;
+		alert();
+	}
+	if (aquaintance < 0){
+		aquaintance = 0;
+	}
+	if (money < 0){
+		money = 0;
+	}
+	if (grades < 0){
+		grades = 0;
+	}
+	if (friends < 0){
+		friends = 0;
+	}
+	if (stress < 0){
+		stress = 0;
+	}
 	display_status();
 }
 
