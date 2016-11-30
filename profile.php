@@ -28,8 +28,7 @@
 
 <body>
   <div id="game">
-        <h1>Information</h1>
-        <h2>Days till Graduation: 600 </h2>
+        <img src="images/icon-2.png">
       <p hidden id="h"> <?php echo $happiness; ?></p>
       <p hidden id="a"> <?php echo $aquaintance; ?></p>
       <p hidden id='g'> <?php echo $grades; ?></p>
