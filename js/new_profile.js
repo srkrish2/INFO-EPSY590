@@ -6,5 +6,6 @@ function send_main(){
 	$('input[name="money"]').val(document.getElementById("m").innerHTML);
 	$('input[name="stress"]').val(document.getElementById("s").innerHTML);
 	$('input[name="friends"]').val(document.getElementById("f").innerHTML);
+	$('input[name="time"]').val(document.getElementById("t").innerHTML);
   	$('#status').submit();
 }

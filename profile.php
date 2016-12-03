@@ -5,6 +5,7 @@
   $stress = $_POST['stress'];
   $grades = $_POST['grades'];
   $money= $_POST['money'];
+  $time= $_POST['time'];
 ?>
 
 <!DOCTYPE html>
@@ -27,15 +28,22 @@
 </head>
 
 <body>
-  <div id="game">
-        <img src="images/icon-2.png">
+    <div id="game">
+      <button id="back" onclick="send_main()">
+        <img style="width: 12%;position: absolute; top: 20px; right: 0;" src="images/back-button.png"/>
+      </button>
+      <img style="width: 35%;margin-left: 32%;" src="images/profile-icon.png"/>
+      <img style="margin-left: 28%;width:35%;"src="images/progressBar.png"/>
+      <hr style="border:1px solid white; width:180px; margin-left 33%;">
+      <!-- the hr tag is just a place holder of progress bar -->
+      <!-- <img style="width:100%;" src="images/wind-graph.png"/> -->
       <p hidden id="h"> <?php echo $happiness; ?></p>
       <p hidden id="a"> <?php echo $aquaintance; ?></p>
       <p hidden id='g'> <?php echo $grades; ?></p>
       <p hidden id="s"> <?php echo $stress; ?></p>
       <p hidden id='m'> <?php echo $money; ?></p>
       <p hidden id='f'> <?php echo $friends; ?></p>
-    <button id="back" onclick="send_main()"> Back </button>
+      <p hidden id='t'> <?php echo $time; ?></p>
 
   <div class="radarChart"></div>
 
@@ -57,7 +65,6 @@
       var data = [
             [
             {axis:"Grades",value:document.getElementById("g").innerHTML/100},
-            {axis:"Money",value:document.getElementById("m").innerHTML/100},
             {axis:"Friends",value:document.getElementById("f").innerHTML/100},
             {axis:"Aquaintances",value:document.getElementById("a").innerHTML/100},
             {axis:"Stress",value:document.getElementById("s").innerHTML/100},
@@ -93,7 +100,7 @@
     <input type="hidden" value="" name="stress" />
     <input type="hidden" value="" name="grades" />
     <input type="hidden" value="" name="money" />
-
+    <input type="time" value="" name="time" />
   </form>
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

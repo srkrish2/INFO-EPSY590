@@ -7,6 +7,7 @@
     $stress = $_POST['stress'];
     $grades = $_POST['grades'];
     $money= $_POST['money'];
+    $time= $_POST['time'];
   }
   else{
     $happiness = 50;
@@ -15,6 +16,7 @@
     $stress = 0;
     $grades = 0;
     $money=0;
+    $time = 400;
   }
 ?>
 
@@ -45,6 +47,8 @@
 		<div class="leader      button"><p>Leadership</p></div>
     <div class="settings      button"><img src="http://i.imgur.com/AjRd8WQ.png"/></div>
 	</div>
+
+  <p hidden id='t'> <?php echo $time; ?></p>
 
 	<div class="body blend">
 		<div class="status-bar">
@@ -193,6 +197,7 @@
   <input type="hidden" value="" name="stress" />
   <input type="hidden" value="" name="grades" />
   <input type="hidden" value="" name="money" />
+  <input type="hidden" value="" name="time" />
 </form>
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
