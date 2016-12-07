@@ -8,15 +8,17 @@
     $grades = $_POST['grades'];
     $money= $_POST['money'];
     $time= $_POST['time'];
+    $time_lose= $_POST['time_lose'];
   }
   else{
     $happiness = 50;
     $aquaintance = 0;
     $friends = 0;
     $stress = 0;
-    $grades = 0;
-    $money=0;
+    $grades = 70;
+    $money=100;
     $time = 400;
+    $time_lose = 7;
   }
 ?>
 
@@ -45,10 +47,11 @@
 		<div class="fun   button"><p>Fun</p></div>
 		<div class="work   button"><p>Work</p></div>
 		<div class="leader      button"><p>Leadership</p></div>
-    <div class="settings      button"><img src="http://i.imgur.com/AjRd8WQ.png"/></div>
+    <div class="settings      button"><p>Settings</p></div>
 	</div>
 
   <p hidden id='t'> <?php echo $time; ?></p>
+  <p hidden id='tl'> <?php echo $time_lose; ?></p>
 
 	<div class="body blend">
 		<div class="status-bar">
@@ -198,6 +201,7 @@
   <input type="hidden" value="" name="grades" />
   <input type="hidden" value="" name="money" />
   <input type="hidden" value="" name="time" />
+  <input type="hidden" value="" name="time_lose" />
 </form>
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

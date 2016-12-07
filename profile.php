@@ -6,6 +6,7 @@
   $grades = $_POST['grades'];
   $money= $_POST['money'];
   $time= $_POST['time'];
+  $time_lose= $_POST['time_lose'];
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +45,7 @@
       <p hidden id='m'> <?php echo $money; ?></p>
       <p hidden id='f'> <?php echo $friends; ?></p>
       <p hidden id='t'> <?php echo $time; ?></p>
+      <p hidden id='tl'> <?php echo $time_lose; ?></p>
 
   <div class="radarChart"></div>
 

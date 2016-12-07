@@ -7,5 +7,6 @@ function send_main(){
 	$('input[name="stress"]').val(document.getElementById("s").innerHTML);
 	$('input[name="friends"]').val(document.getElementById("f").innerHTML);
 	$('input[name="time"]').val(document.getElementById("t").innerHTML);
+	$('input[name="time_lose"]').val(document.getElementById("tl").innerHTML);
   	$('#status').submit();
 }

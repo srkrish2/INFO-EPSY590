@@ -5,19 +5,21 @@ var stress = 0;
 var grades = 0;
 var money = 0;
 var time = 400;
+var time_lose = 7;
 var accomplishment = [];
 
 var rand_events = {};
-var rand_events_list = ["exam", "deadline", "relationship", "competition", "exam_success", "gift", "job_offer", "award", "trip"];
+var rand_events_list = ["injury", "exam", "deadline", "relationship_troubles", "competition", "exam_success", "gift", "job_offer", "award", "trip"];
 rand_events["exam"] = {h:0, a:0, f:0, s:50, g:0, m:0};
 rand_events["deadline"] = {h:0, a:0, f:0, s:50, g:0, m:0};
-rand_events["relationship"] = {h:0, a:0, f:0, s:50, g:0, m:0};
+rand_events["relationship_troubles"] = {h:0, a:0, f:0, s:50, g:0, m:0};
 rand_events["competition"] = {h:0, a:0, f:0, s:50, g:0, m:0};
 rand_events["exam_success"] = {h:0, a:0, f:0, s:50, g:0, m:0};
 rand_events["gift"] = {h:0, a:0, f:0, s:50, g:0, m:0};
 rand_events["award"] = {h:0, a:0, f:0, s:50, g:0, m:0};
 rand_events["job_offer"] = {h:0, a:0, f:0, s:50, g:0, m:0};
 rand_events["trip"] = {h:0, a:0, f:0, s:50, g:0, m:0};
+rand_events["injury"] = {h:0, a:0, f:0, s:50, g:0, m:0};
 
 
 var point_dict = {};
@@ -95,14 +97,38 @@ function update_status(iden){
 	time = time -1;
 	var idd = iden;//iden.toString();
 
-	//check if we have enough money to do this
+	var goahead = check_validity(idd);
+	if(goahead){
+		update_vals_pd(idd);
+	}
+	display_status();
+	rand_event();
+}
+
+function check_validity(idd){
 	if(money + point_dict[idd].m < 0){
 		alert("You do not have enough money for this action.");
-		break;
+		return false;
 	}
-	//check rules for action
+	if(happiness > 0 && grades > 50 && stress < 75 ){
+		time_lose = 7;
+	}
+	else{
+		time_lose = time_lose -1;
+		if (time_lose > 0){
+			alert("You have " + time_lose + " more actions before you lose the game");
+			alert("Keep happiness above 0, grades above 50, and stress below 75.");
+		}
+		else{
+			alert("Game Lost");
+			start_over();
+			return false;
+		}
+	}
+	return true;
+}
 
-	//if so update all values
+function update_vals_pd(idd){
 	happiness = happiness + point_dict[idd].h;
 	aquaintance = aquaintance + point_dict[idd].a;
 	grades = grades + point_dict[idd].g;
@@ -141,12 +167,89 @@ function update_status(iden){
 	if(stress > 100){
 		stress = 100;
 	}
-	display_status();
-	rand_event();
+}
+
+function update_vals_rand(idd){
+	happiness = happiness + rand_events[idd].h;
+	aquaintance = aquaintance + rand_events[idd].a;
+	grades = grades + rand_events[idd].g;
+	money = money + rand_events[idd].m;
+	stress = stress + rand_events[idd].s;
+	friends = friends + rand_events[idd].f;
+
+	if (happiness < 0){
+		happiness = 0;
+		alert();
+	}
+	if (aquaintance < 0){
+		aquaintance = 0;
+	}
+	if (grades < 0){
+		grades = 0;
+	}
+	if (friends < 0){
+		friends = 0;
+	}
+	if (stress < 0){
+		stress = 0;
+	}
+	if(happiness > 100){
+		happiness = 100;
+	}
+	if(aquaintance > 100){
+		aquaintance = 100;
+	}
+	if(grades > 100){
+		grades = 100;
+	}
+	if(friends > 100){
+		friends = 100;
+	}
+	if(stress > 100){
+		stress = 100;
+	}
 }
 
 function rand_event(){
-
+	var rand = Math.floor(Math.random() * 20);
+	if (rand == 0){
+		var rand2 = Math.floor(Math.random() * 10);
+		["injury", "exam", "deadline", "relationship_troubles", "competition", "exam_success", "gift", "job_offer", "award", "trip"];
+		switch(rand2){
+			case 0:
+				alert("You got an injury!");
+				break;
+			case 1:
+				alert("You have an exam coming up!");
+				break;
+			case 2:
+				alert("You have a deadline coming up!");
+				break;
+			case 3:
+				alert("You are having relationship troubles");
+				break;
+			case 4:
+				alert("You are participating in a competition next week!");
+				break;
+			case 5:
+				alert("You did really well on a homework assignment!");
+				break;
+			case 6:
+				alert("You got a gift from your best friend!");
+				break;
+			case 7:
+				alert("You got a job offer!");
+				break;
+			case 8:
+				alert("You got an award!");
+				break;
+			case 9:
+				alert("You got the news that you will be going for a trip soon!");
+				break;
+		}
+		update_vals_rand(rand_events_list[rand2]);
+	}
+	display_status();
 }
 
 function start_values(){
@@ -157,6 +260,7 @@ function start_values(){
 	stress = document.getElementById("s").innerHTML*1;
 	friends = document.getElementById("f").innerHTML*1;
 	time = document.getElementById("t").innerHTML*1;
+	time_lose = document.getElementById("tl").innerHTML*1;
 }
 
 function display_status(){
@@ -173,8 +277,8 @@ function start_over(){
 	aquaintance = 0;
 	friends = 0;
 	stress = 0;
-	grades = 0;
-	money=0;
+	grades = 70;
+	money=100;
 	accomplishment = [];
 	display_status();
 }
@@ -187,5 +291,6 @@ function send_main(){
 	$('input[name="stress"]').val(stress);
 	$('input[name="friends"]').val(friends);
 	$('input[name="time"]').val(time);
+	$('input[name="time_lose"]').val(time_lose);
 	$('#status').submit();
 }
